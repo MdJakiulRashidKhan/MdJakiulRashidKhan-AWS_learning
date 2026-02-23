@@ -9,4 +9,24 @@ AWS Management Console-এ লগইন করার পর **Region** হিস
 
 ![Search VPC](img/vpc.png)
 
+### Step 1.1: Go to Create VPC
+আমরা **VPC Dashboard**-এ গিয়ে **Create VPC** বাটনে ক্লিক করেছি।  
+
+![Create VPC](img/vpcDashboard.png)
+
+### Step 1.2: Create VPC
+আমরা **Create VPC** ফর্মে নিম্নলিখিত সেটিং ব্যবহার করে একটি নতুন VPC তৈরি করেছি:  
+
+- **VPC only** নির্বাচন করেছি  
+- **Name:** `Test VPC`  
+- **IPv4 CIDR block:** `192.168.0.0/16`  
+- **No IPv6 CIDR block**  
+- **VPC Encryption:** `Control: None`  
+- **Tags:** `Name = test-vpc`  
+
+এরপর **Create** বাটনে ক্লিক করেছি।  
+
+![VPC Created](img/creatingvpc.png)
+
+
 
