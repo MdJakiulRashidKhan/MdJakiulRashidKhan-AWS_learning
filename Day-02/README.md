@@ -65,7 +65,7 @@ Click **Create**.
 ## 📦 Step 2: Create a Public Subnet
 Go to **Subnets → Create Subnet**.  
 
-![Subnet Created](img/subnet1.png)
+![Subnet Created](img/subnet.png)
 
 ### 2.1 Configure Subnet
 Use these settings:  
@@ -186,5 +186,6 @@ After successfully connecting to your EC2 instance, run the following command to
 ping google.com
 ```
 ![EC2 SSH Connection](img/Ec2run2.png)
+
 
 
