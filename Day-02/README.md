@@ -159,6 +159,10 @@ ssh -i "test-key.pem" ec2-user@3.128.170.216
 ping google.com
 Response পেয়ে নিশ্চিত করেছি যে Internet connection ঠিক আছে।
 
+![EC2 Connect](img/ec2run.png)
+![EC2 Connect](img/ec2run2.png)
+
+
 
 
 
