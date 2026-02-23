@@ -177,11 +177,13 @@ Use the following SSH command to connect to your EC2 instance:
 ```bash
 ssh -i "test-key.pem" ec2-user@<EC2-Public-IP>
 ### 🌐 Verify Internet Access
+```
+![EC2 SSH Connection](img/ec2run.png)
 
 After successfully connecting to your EC2 instance, run the following command to verify internet connectivity:
 
 ```bash
 ping google.com
----
-![EC2 SSH Connection](img/ec2run.png)
+```
 ![EC2 SSH Connection](img/ec2run2.png)
+
