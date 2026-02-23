@@ -1,123 +1,147 @@
-## Step 0: Choose AWS Region
-AWS Management Console-এ লগইন করার পর **Region** হিসেবে **Ohio (us-east-2)** নির্বাচন করুন।  
-সঠিক Region নির্বাচন করা গুরুত্বপূর্ণ, কারণ পরের সব resource সেই Region-এ তৈরি হবে।
+# 🌐 AWS VPC & EC2 Setup Guide – Md Jakiul Rashid Khan (Day 2)
+
+This guide walks through creating a **VPC, Public Subnet, Internet Gateway, Route Table**, and launching an **EC2 instance** on AWS.
+
+---
+
+## 📑 Table of Contents
+- [🟢 Step 0: Choose AWS Region](#-step-0-choose-aws-region)
+- [🏗️ Step 1: Open VPC Dashboard](#-step-1-open-vpc-dashboard)
+  - [1.1 Go to Create VPC](#11-go-to-create-vpc)
+  - [1.2 Create VPC](#12-create-vpc)
+- [📦 Step 2: Create a Public Subnet](#-step-2-create-a-public-subnet)
+  - [2.1 Configure Subnet](#21-configure-subnet)
+- [🌐 Step 3: Create an Internet Gateway (IGW)](#-step-3-create-an-internet-gateway-igw)
+  - [3.1 Name the IGW](#31-name-the-igw)
+  - [3.2 Attach IGW to VPC](#32-attach-igw-to-vpc)
+- [🛣️ Step 4: Update Route Table](#-step-4-update-route-table)
+  - [4.1 Create Route Table](#41-create-route-table)
+  - [4.2 Add Route to IGW](#42-add-route-to-igw)
+  - [4.3 Associate Subnet](#43-associate-subnet)
+- [🚀 Step 5: Launch an EC2 Instance](#-step-5-launch-an-ec2-instance)
+  - [5.1 Configure EC2 Instance](#51-configure-ec2-instance)
+- [🔑 Step 6: Connect to EC2 Instance](#-step-6-connect-to-ec2-instance)
+  - [6.1 SSH Client Access](#61-ssh-client-access)
+- [✅ Conclusion](#-conclusion)
+
+---
+
+## 🟢 Step 0: Choose AWS Region
+Log in to **AWS Management Console** and select **Region:**  
+**Ohio (us-east-2)** ✅  
+
+> Selecting the correct region is crucial because all resources will be created here.
 
 ![Select Region](img/region.png)
 
-## Step 1: Open VPC Dashboard
-আমরা **AWS Console**-এ **VPC** সার্চ করেছি এবং **VPC Dashboard**-এ প্রবেশ করেছি।  
+---
+
+## 🏗️ Step 1: Open VPC Dashboard
+- Search for **VPC** in the AWS Console and open **VPC Dashboard**.  
 
 ![Search VPC](img/vpc.png)
 
-### Step 1.1: Go to Create VPC
-আমরা **VPC Dashboard**-এ গিয়ে **Create VPC** বাটনে ক্লিক করেছি।  
+### 1.1 Go to Create VPC
+Click **Create VPC** in the dashboard.  
 
 ![Create VPC](img/vpcDashboard.png)
 
-### Step 1.2: Create VPC
-আমরা **Create VPC** ফর্মে নিম্নলিখিত সেটিং ব্যবহার করে একটি নতুন VPC তৈরি করেছি:  
+### 1.2 Create VPC
+Fill in the following details:  
 
-- **VPC only** নির্বাচন করেছি  
+- **VPC only** ✅  
 - **Name:** `Test VPC`  
 - **IPv4 CIDR block:** `192.168.0.0/16`  
 - **No IPv6 CIDR block**  
 - **VPC Encryption:** `Control: None`  
 - **Tags:** `Name = test-vpc`  
 
-এরপর **Create** বাটনে ক্লিক করেছি।  
+Click **Create**.  
 
 ![VPC Created](img/creatingvpc.png)
 
-## Step 2: Create a Public Subnet
-আমরা **VPC Dashboard**-এ গিয়ে **Subnets → Create Subnet** এ ক্লিক করেছি এবং নতুন Subnet তৈরি করেছি।  
-ছবিতে দেখানো হয়েছে Subnet তৈরি হওয়ার পুরো প্রক্রিয়া।  
+---
+
+## 📦 Step 2: Create a Public Subnet
+Go to **Subnets → Create Subnet**.  
 
 ![Subnet Created](img/subnet1.png)
 
-### Step 2.1: Configure and Create Subnet
-নতুন Subnet তৈরি করতে আমরা নিম্নলিখিত সেটিং ব্যবহার করেছি:  
+### 2.1 Configure Subnet
+Use these settings:  
 
 - **VPC ID:** `test-vpc`  
 - **Subnet Name:** `test-public-subnet-01`  
 - **Availability Zone:** `us-east-2a`  
 - **IPv4 CIDR block:** `192.168.1.0/21`  
 
-এরপর **Create Subnet** বাটনে ক্লিক করেছি।  
+Click **Create Subnet** ✅  
 
 ![Subnet Details](img/subnet2.png)
 
-## Step 3: Create an Internet Gateway
-আমরা **VPC Dashboard**-এ গিয়ে **Internet Gateways → Create Internet Gateway** এ ক্লিক করেছি।  
-ছবিতে দেখানো হয়েছে Internet Gateway তৈরি করার জন্য কোন ফিল্ড পূরণ করতে হবে।  
+---
+
+## 🌐 Step 3: Create an Internet Gateway (IGW)
+Go to **Internet Gateways → Create Internet Gateway**.  
 
 ![Create Internet Gateway](img/igw.png)
 
-### Step 3.1: Name and Attach Internet Gateway
-আমরা Internet Gateway তৈরি করার সময় নিম্নলিখিত সেটিং ব্যবহার করেছি:  
-
+### 3.1 Name the IGW
 - **Name:** `test-igw`  
 
 ![Internet Gateway Created](img/igw2.png)
 
-### Step 3.2: Attach Internet Gateway to VPC
-আমরা তৈরি করা **test-igw** Internet Gateway-টি আমাদের **Test VPC**-এর সাথে attach করেছি।  
-এই ধাপটি Public Subnet-এর জন্য Internet access নিশ্চিত করতে অত্যন্ত গুরুত্বপূর্ণ।  
+### 3.2 Attach IGW to VPC
+Attach **test-igw** to **Test VPC** to allow internet access for the public subnet.  
 
-![Attach Internet Gateway](img/igw3.png)
+![Attach Internet Gateway](img/igw3.png)  
 ![Attach Internet Gateway](img/igw4.png)
 
+---
 
-## Step 4: Update Route Table
-আমরা **VPC Dashboard**-এ গিয়ে **Route Tables**-এ প্রবেশ করেছি।  
-Public Subnet-এর জন্য route update করার জন্য কাজ করেছি।  
+## 🛣️ Step 4: Update Route Table
+Go to **Route Tables** in the VPC dashboard.  
 
 ![Route Table](img/rt1.png)
 
-### Step 4.1: Create Route Table
-আমরা **Route Tables → Create Route Table** এ গিয়েছি এবং নতুন route table তৈরি করেছি:  
-
+### 4.1 Create Route Table
 - **Name:** `test-pub-rt`  
 - **VPC:** `test-vpc`  
 
-এরপর route table create করেছি।  
+Click **Create** ✅  
 
 ![Route Table Created](img/rt2.png)
 
-### Step 4.2: Add Route to Internet Gateway
-আমরা তৈরি করা **test-pub-rt** route table-এ গিয়ে **Edit routes → Add route** করেছি।  
+### 4.2 Add Route to IGW
 - **Destination:** `0.0.0.0/0`  
-- **Target:** আমাদের তৈরি করা **test-igw** Internet Gateway  
+- **Target:** `test-igw`  
 
-এই ধাপটি নিশ্চিত করে যে Public Subnet থেকে Internet-এ outgoing এবং incoming traffic যাবে।  
-
-![Route to IGW](img/rt3.png)
+![Route to IGW](img/rt3.png)  
 ![Route to IGW](img/rt4.png)
 
-### Step 4.3: Associate Subnet with Route Table
-আমরা **test-pub-rt** route table-এ গিয়ে **Subnet Associations → Edit subnet associations** করেছি।  
+### 4.3 Associate Subnet
 - **Subnet selected:** `test-public-subnet-01`  
+- Save associations ✅  
 
-এরপর **Save associations** ক্লিক করেছি।  
-এই ধাপ নিশ্চিত করে যে Public Subnet-এর সব traffic এই route table-এর মাধ্যমে Internet Gateway এর সাথে যায়।  
-
-![Subnet Association](img/rt5.png)
-![Subnet Association](img/rt6.png)
+![Subnet Association](img/rt5.png)  
+![Subnet Association](img/rt6.png)  
 ![Subnet Association](img/rt7.png)
 
-## Step 5: Launch an EC2 Instance
-আমরা **AWS Dashboard**-থেকে **EC2**-এ গিয়েছি।  
-EC2 Dashboard-এ প্রবেশ করার পর **Launch Instances** এ ক্লিক করেছি, যাতে নতুন instance তৈরি করা যায়।  
+---
 
-![EC2 Launch](img/ec2.png)
+## 🚀 Step 5: Launch an EC2 Instance
+Go to **EC2 Dashboard → Launch Instances**.  
+
+![EC2 Launch](img/ec2.png)  
 ![EC2 Launch](img/in1.png)
 
-### Step 5.1: Configure EC2 Instance
-নতুন EC2 instance তৈরি করার সময় আমরা নিম্নলিখিত সেটিং ব্যবহার করেছি:  
+### 5.1 Configure EC2 Instance
+Use the following settings:  
 
 - **Name:** `test-app-server`  
-- **Application and OS Image (Amazon Machine Image):** `Amazon Linux`  
+- **AMI:** `Amazon Linux`  
 - **Instance Type:** `t2.micro`  
-- **Key Pair:** `test-key` (RSA `.pem` ফাইল তৈরি করেছি)  
+- **Key Pair:** `test-key` (RSA `.pem` file)  
 - **Network Settings:**  
   - **VPC:** `test-vpc`  
   - **Subnet:** `test-public-subnet-01`  
@@ -126,46 +150,38 @@ EC2 Dashboard-এ প্রবেশ করার পর **Launch Instances** �
     - HTTP, Source: Anywhere  
     - SSH, Source: Anywhere  
 
-এরপর instance create করেছি।  
+Click **Create Instance** ✅  
 
-![EC2 Instance Settings](img/i1.png)
-![EC2 Instance Settings](img/i2.png)
-![EC2 Instance Settings](img/i3.png)
-![EC2 Instance Settings](img/i4.png)
-![EC2 Instance Settings](img/i5.png)
-![EC2 Instance Settings](img/i6.png)
+![EC2 Instance Settings](img/i1.png)  
+![EC2 Instance Settings](img/i2.png)  
+![EC2 Instance Settings](img/i3.png)  
+![EC2 Instance Settings](img/i4.png)  
+![EC2 Instance Settings](img/i5.png)  
+![EC2 Instance Settings](img/i6.png)  
 ![EC2 Instance Settings](img/i7.png)
 
-## Step 6: Connect to EC2 Instance
-EC2 instance **test-app-server** তৈরি হওয়ার পর **Status Checks** সম্পন্ন হয়েছে (Passed)।  
-এরপর instance নির্বাচন করে **Connect** এ গিয়েছি।  
+---
 
-![EC2 Connect](img/i8.png)
+## 🔑 Step 6: Connect to EC2 Instance
+Once the EC2 instance **test-app-server** passes **Status Checks**:
 
-### Step 6.1: SSH Client Access via Command Prompt
-EC2 instance **test-app-server**-এ connect করার জন্য আমরা **SSH client** ব্যবহার করেছি।  
-
-**Steps:**  
-1. **Key Pair Location:** Command Prompt-এ সেই folder-এ গিয়েছি যেখানে `test-key.pem` file আছে (উদাহরণ: `Downloads`)  
-2. **Set Permissions:**  
+### 6.1 SSH Client Access
+1. Go to the folder containing `test-key.pem`.  
+2. Set permissions:
 ```bash
 chmod 400 test-key.pem
-Connect to EC2 Instance:
-3.**Connect to EC2 Instance:**
+### 🔑 Connect to EC2 Instance
+
+Use the following SSH command to connect to your EC2 instance:
+
 ```bash
-ssh -i "test-key.pem" ec2-user@3.128.170.216
-4.**Verify Internet Access:**
+ssh -i "test-key.pem" ec2-user@<EC2-Public-IP>
+### 🌐 Verify Internet Access
+
+After successfully connecting to your EC2 instance, run the following command to verify internet connectivity:
+
 ```bash
 ping google.com
-Response পেয়ে নিশ্চিত করেছি যে Internet connection ঠিক আছে।
-
-![EC2 Connect](img/ec2run.png)
-![EC2 Connect](img/ec2run2.png)
-
-
-
-
-
-
-
-
+---
+![EC2 SSH Connection](img/ec2run.png)
+![EC2 SSH Connection](img/ec2run2.png)
