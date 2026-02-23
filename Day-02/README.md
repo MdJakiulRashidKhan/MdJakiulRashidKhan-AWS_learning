@@ -104,5 +104,64 @@ Public Subnet-এর জন্য route update করার জন্য কা�
 ![Subnet Association](img/rt6.png)
 ![Subnet Association](img/rt7.png)
 
+## Step 5: Launch an EC2 Instance
+আমরা **AWS Dashboard**-থেকে **EC2**-এ গিয়েছি।  
+EC2 Dashboard-এ প্রবেশ করার পর **Launch Instances** এ ক্লিক করেছি, যাতে নতুন instance তৈরি করা যায়।  
+
+![EC2 Launch](img/ec2.png)
+![EC2 Launch](img/in1.png)
+
+### Step 5.1: Configure EC2 Instance
+নতুন EC2 instance তৈরি করার সময় আমরা নিম্নলিখিত সেটিং ব্যবহার করেছি:  
+
+- **Name:** `test-app-server`  
+- **Application and OS Image (Amazon Machine Image):** `Amazon Linux`  
+- **Instance Type:** `t2.micro`  
+- **Key Pair:** `test-key` (RSA `.pem` ফাইল তৈরি করেছি)  
+- **Network Settings:**  
+  - **VPC:** `test-vpc`  
+  - **Subnet:** `test-public-subnet-01`  
+- **Security Group:** `test-0sg`  
+  - **Inbound Rules:**  
+    - HTTP, Source: Anywhere  
+    - SSH, Source: Anywhere  
+
+এরপর instance create করেছি।  
+
+![EC2 Instance Settings](img/i1.png)
+![EC2 Instance Settings](img/i2.png)
+![EC2 Instance Settings](img/i3.png)
+![EC2 Instance Settings](img/i4.png)
+![EC2 Instance Settings](img/i5.png)
+![EC2 Instance Settings](img/i6.png)
+![EC2 Instance Settings](img/i7.png)
+
+## Step 6: Connect to EC2 Instance
+EC2 instance **test-app-server** তৈরি হওয়ার পর **Status Checks** সম্পন্ন হয়েছে (Passed)।  
+এরপর instance নির্বাচন করে **Connect** এ গিয়েছি।  
+
+![EC2 Connect](img/i8.png)
+
+### Step 6.1: SSH Client Access via Command Prompt
+EC2 instance **test-app-server**-এ connect করার জন্য আমরা **SSH client** ব্যবহার করেছি।  
+
+**Steps:**  
+1. **Key Pair Location:** Command Prompt-এ সেই folder-এ গিয়েছি যেখানে `test-key.pem` file আছে (উদাহরণ: `Downloads`)  
+2. **Set Permissions:**  
+```bash
+chmod 400 test-key.pem
+Connect to EC2 Instance:
+3.**Connect to EC2 Instance:**
+```bash
+ssh -i "test-key.pem" ec2-user@3.128.170.216
+4.**Verify Internet Access:**
+```bash
+ping google.com
+Response পেয়ে নিশ্চিত করেছি যে Internet connection ঠিক আছে।
+
+
+
+
+
 
 
