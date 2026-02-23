@@ -4,3 +4,9 @@ AWS Management Console-এ লগইন করার পর **Region** হিস
 
 ![Select Region](img/region.png)
 
+## Step 1: Open VPC Dashboard
+আমরা **AWS Console**-এ **VPC** সার্চ করেছি এবং **VPC Dashboard**-এ প্রবেশ করেছি।  
+
+![Search VPC](img/vpc.png)
+
+
