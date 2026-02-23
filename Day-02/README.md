@@ -185,5 +185,6 @@ After successfully connecting to your EC2 instance, run the following command to
 ```bash
 ping google.com
 ```
-![EC2 SSH Connection](img/ec2run2.png)
+![EC2 SSH Connection](img/Ec2run2.png)
+
 
