@@ -181,6 +181,7 @@ systems. 🚀
 
 ## Author
 
-👤 Name: Md Jakiul Rashid Khan\
+👤 Name: Md. Jakiul Rashid Khan\
 📚 Topic: Cloud Computing\
 🎯 Level: Beginner to Professional
+
