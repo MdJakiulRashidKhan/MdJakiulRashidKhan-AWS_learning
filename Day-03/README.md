@@ -209,7 +209,7 @@ ping -c 4 google.com
 chmod 400 test-nat-key.pem
 ssh -i "test-nat-key.pem" ec2-user@<Private-EC2-Private-IP>
 ```
-![Save Key on Server Screenshot](img/36.png)
+![Save Key on Server Screenshot](img/37.png)
 ![Save Key on Server Screenshot](img/t4.png)
 
 ## Step 4.1: Verify Internet Access from Private EC2
@@ -219,6 +219,7 @@ ssh -i "test-nat-key.pem" ec2-user@<Private-EC2-Private-IP>
 ping -c 4 google.com
 ```
 ![Save Key on Server Screenshot](img/t5.png)
+
 
 
 
