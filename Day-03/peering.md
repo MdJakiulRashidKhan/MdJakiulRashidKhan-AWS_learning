@@ -123,10 +123,59 @@
 
 **Screenshots:**
 
-[Pending Acceptance](images/14.png)  
+![Pending Acceptance](images/14.png)  
 
 ![Accept Request](images/15.png) 
  
 ![Peering Active](images/16.png)
+
+## 🛠 Step 3: Update Route Tables
+
+VPC Peering Connection active howar por, dono region e route tables update korte hoy jate traffic pass korte pare.
+
+---
+
+### 3.1 Sydney Region – Acceptor VPC
+
+1. Switch to **Sydney Region**  
+2. Go to **VPC Dashboard → Route Tables**  
+3. Select **acceptor-vpc-rtb-public → Routes → Edit Routes**  
+4. Add route:
+
+- **Destination:** `10.77.0.0/16` (Ohio VPC CIDR)  
+- **Target:** Peering Connection (`pcx-xxxx`)  
+- Click **Save Changes**
+
+**Screenshots:**
+
+  
+![Sydney Route Table](images/17.png)  
+ 
+![Sydney Edit Routes](images/19.png)`  
+ 
+![Sydney Route Added](images/20.png)`
+
+---
+
+### 3.2 Ohio Region – Requestor VPC
+
+1. Switch to **Ohio Region**  
+2. Go to **VPC Dashboard → Route Tables**  
+3. Select **requestor-vpc-rtb-public → Routes → Edit Routes**  
+4. Add route:
+
+- **Destination:** `172.0.0.0/16` (Sydney VPC CIDR)  
+- **Target:** Peering Connection (`pcx-xxxx`)  
+- Click **Save Changes**
+
+**Screenshots:**
+
+![Ohio Route Table](images/21.png)
+
+![Ohio Edit Routes](images/22.png) 
+ 
+![Ohio Route Added](images/23.png)
+
+
 
 
