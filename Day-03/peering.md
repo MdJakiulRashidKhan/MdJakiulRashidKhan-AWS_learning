@@ -2,22 +2,22 @@
 
 ## 📑 Table of Contents
 
-1. [Step 0: Create Regions](#-step-0-create-regions)  
-2. [Step 1: Create VPCs](#-step-1-create-vpcs)  
-   - [1.1 Ohio Region – Requestor VPC](#11-ohio-region--requestor-vpc)  
-   - [1.2 Sydney Region – Acceptor VPC](#12-sydney-region--acceptor-vpc)  
-3. [Step 2: Create VPC Peering Connection](#-step-2-create-vpc-peering-connection-🔗)  
-   - [Ohio Region – Requestor](#ohio-region--requestor)  
-   - [2.1 Sydney Region – Acceptor](#21-sydney-region--acceptor)  
-4. [Step 3: Update Route Tables](#-step-3-update-route-tables-🛣️)  
-   - [3.1 Sydney Region – Acceptor VPC](#31-sydney-region--acceptor-vpc)  
-   - [3.2 Ohio Region – Requestor VPC](#32-ohio-region--requestor-vpc)  
-5. [Step 4: Launch EC2 Instances](#-step-4-launch-ec2-instances-💻)  
-   - [4.1 Ohio Region – Requestor Instance](#41-ohio-region--requestor-instance)  
-   - [4.2 Sydney Region – Acceptor Instance](#42-sydney-region--acceptor-instance)  
-6. [Step 5: Test Connectivity Between EC2 Instances](#-step-5-test-connectivity-between-ec2-instances-🔍)  
-   - [5.1 SSH into Requestor Instance (Ohio)](#51-ssh-into-requestor-instance-ohio)  
-   - [5.2 Ping Acceptor Instance (Sydney)](#52-ping-acceptor-instance-sydney)
+1. 🏁 [Step 0: Create Regions](#-step-0-create-regions)  
+2. 🏗️ [Step 1: Create VPCs](#-step-1-create-vpcs)  
+   - 🌐 [1.1 Ohio Region – Requestor VPC](#11-ohio-region--requestor-vpc)  
+   - 🌏 [1.2 Sydney Region – Acceptor VPC](#12-sydney-region--acceptor-vpc)  
+3. 🔗 [Step 2: Create VPC Peering Connection](#-step-2-create-vpc-peering-connection-🔗)  
+   - 🖥️ [Ohio Region – Requestor](#ohio-region--requestor)  
+   - 🛡️ [2.1 Sydney Region – Acceptor](#21-sydney-region--acceptor)  
+4. 🛣️ [Step 3: Update Route Tables](#-step-3-update-route-tables-🛣️)  
+   - 🗺️ [3.1 Sydney Region – Acceptor VPC](#31-sydney-region--acceptor-vpc)  
+   - 🗺️ [3.2 Ohio Region – Requestor VPC](#32-ohio-region--requestor-vpc)  
+5. 💻 [Step 4: Launch EC2 Instances](#-step-4-launch-ec2-instances-💻)  
+   - ⚡ [4.1 Ohio Region – Requestor Instance](#41-ohio-region--requestor-instance)  
+   - ⚡ [4.2 Sydney Region – Acceptor Instance](#42-sydney-region--acceptor-instance)  
+6. 🔍 [Step 5: Test Connectivity Between EC2 Instances](#-step-5-test-connectivity-between-ec2-instances-🔍)  
+   - 🖱️ [5.1 SSH into Requestor Instance (Ohio)](#51-ssh-into-requestor-instance-ohio)  
+   - 📡 [5.2 Ping Acceptor Instance (Sydney)](#52-ping-acceptor-instance-sydney)
 
 ---
 
