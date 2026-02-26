@@ -11,7 +11,7 @@
 3. Screenshots of the VPCs:
 
 - Ohio VPC:  
-`![Ohio VPC](images/1.png)`  
+`![Ohio VPC](img/1.png)`  
 
 - Sydney VPC:  
 `![Sydney VPC](images/6.png)`
