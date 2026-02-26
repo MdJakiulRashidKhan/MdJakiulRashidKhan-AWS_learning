@@ -106,11 +106,11 @@
 
 **Screenshots:**
 
-- Create Peering Page:  
-`![Create Peering Ohio](images/create-peering-ohio.png)`  
+![Create Peering Ohio](images/11.png)  
 
-- Peering Workflow:  
-`![Peering Workflow Ohio](images/peering-workflow-ohio.png)`  
+![Create Peering Ohio](images/12.png)  
+
+![Peering Workflow Ohio](images/13.png) 
 
 ---
 
@@ -123,11 +123,10 @@
 
 **Screenshots:**
 
-- Pending Acceptance Status:  
-`![Pending Acceptance](images/pending-acceptance.png)`  
+[Pending Acceptance](images/14.png)  
 
-- Accept Request Option:  
-`![Accept Request](images/accept-request.png)`  
+![Accept Request](images/15.png) 
+ 
+![Peering Active](images/16.png)
 
-- Peering Connection Active:  
-`![Peering Active](images/peering-active.png)`
+
