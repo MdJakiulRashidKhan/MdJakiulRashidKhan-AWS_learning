@@ -1,5 +1,31 @@
 # AWS EC2 Launch Template Setup
 
+## 📑 Table of Contents
+- [Overview](#overview)
+- [Why Use Launch Templates](#why-use-launch-templates)
+- [Step 1: Navigate to Launch Templates](#step-1-navigate-to-launch-templates)
+- [Step 2: Create Launch Template](#step-2-create-launch-template)
+- [Step 3: Configure Launch Template](#step-3-configure-launch-template)
+- [Step 4: Create Launch Template](#step-4-create-launch-template)
+- [Step 5: Use Launch Template to Launch EC2 Instance](#step-5-use-launch-template-to-launch-ec2-instance)
+
+---
+
+## 📌 Overview
+This project demonstrates how to create and use an AWS EC2 Launch Template.  
+Launch Templates help define instance configuration so that it can be reused easily in the future.
+
+---
+
+## 🚀 Why Use Launch Templates
+- Reuse the same configuration multiple times  
+- Save time during EC2 instance creation  
+- Maintain consistency across environments  
+- Easily integrate with Auto Scaling  
+- Allow flexible customization before launching instances  
+
+---
+
 ## Step 1: Navigate to Launch Templates
 
 At first, log in to AWS Management Console and go to the EC2 Dashboard.  
@@ -8,6 +34,8 @@ From the left sidebar, click on **Launch Templates**.
 ### Screenshot
 
 ![Step 1](./img/1.png)
+
+---
 
 ## Step 2: Create Launch Template
 
@@ -18,6 +46,8 @@ This will open the configuration page where we can define instance settings.
 ### Screenshot
 
 ![Step 2](./img/2.png)
+
+---
 
 ## Step 3: Configure Launch Template
 
@@ -65,6 +95,7 @@ In this step, we configure the Launch Template settings based on requirements.
 ![Step 3 - Config 5](./img/7.png)  
 ![Step 3 - Config 6](./img/8.png)  
 
+---
 
 ## Step 4: Create Launch Template
 
@@ -82,6 +113,8 @@ Once the template is successfully created, AWS will show a confirmation message.
 
 ![Step 4 - Success 1](./img/9.png)  
 ![Step 4 - Success 2](./img/10.png)
+
+---
 
 ## Step 5: Use Launch Template to Launch EC2 Instance
 
