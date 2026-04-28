@@ -49,7 +49,7 @@ After creating the VPC, AWS automatically created:
 
 ## 🖼️ Screenshots
 
-![img1](./images/img1.png)  
-![img2](./images/img2.png)  
-![img3](./images/img3.png)  
-![img4](./images/img4.png)
+![img1](./img/1.png)  
+![img2](./img/2.png)  
+![img3](./img/3.png)  
+![img4](./img/4.png)
