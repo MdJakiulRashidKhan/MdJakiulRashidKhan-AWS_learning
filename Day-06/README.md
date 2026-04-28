@@ -682,6 +682,17 @@ After login to EC2:
 ![b18](./img/b18.png)  
 ![b19](./img/b19.png)
 
+## 📌 Project Summary
+
+This project demonstrates a complete AWS EBS workflow including VPC creation, EC2 instances setup, EBS volume creation, attachment, filesystem configuration, snapshot backup, and cross-region snapshot copy.
+
+I created multiple EC2 instances and attached EBS volumes to store and manage data. Then I took snapshots of the volume, restored them in another region (Singapore), and verified data persistence by accessing files like `1.txt` and `2.txt` across instances.
+
+This project shows real-world cloud storage management, backup strategy, and cross-region disaster recovery using AWS services.
+
+## 👨‍💻 Author
+Md. Jakiul Rashid Khan
+
 
 
 
