@@ -25,14 +25,14 @@ Upload করা file এ গিয়ে:
 
 ## 📸 Screenshot
 
-![img](presigned-img/1)
-![img](presigned-img/2)
-![img](presigned-img/3)
-![img](presigned-img/4)
-![img](presigned-img/5)
-![img](presigned-img/6)
-![img](presigned-img/7)
-![img](presigned-img/8)
+![img](presigned-img/1.png)
+![img](presigned-img/2.png)
+![img](presigned-img/3.png)
+![img](presigned-img/4.png)
+![img](presigned-img/5.png)
+![img](presigned-img/6.png)
+![img](presigned-img/7.png)
+![img](presigned-img/8.png)
 
 ---
 
@@ -64,14 +64,14 @@ Upload করা file এ গিয়ে:
 
 ---
 
-## 📸 Screenshot
+## 📸 Screenshot (Pre-Signed URL)
 
-![img](presigned-img/9)
-![img](presigned-img/10)
-![img](presigned-img/11)
-![img](presigned-img/12)
-![img](presigned-img/13)
-![img](presigned-img/14)
+![img](presigned-img/9.png)
+![img](presigned-img/10.png)
+![img](presigned-img/11.png)
+![img](presigned-img/12.png)
+![img](presigned-img/13.png)
+![img](presigned-img/14.png)
 
 ---
 
