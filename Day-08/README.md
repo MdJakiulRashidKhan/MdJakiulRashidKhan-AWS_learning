@@ -339,3 +339,95 @@ The file was successfully created inside the EFS shared storage.
 ![Mounting EFS](img/b4.png)
 
 ![File System Verification](img/b5.png)
+
+# 🔄 Step 6: Verify EFS Shared Storage on Second EC2 Instance
+
+After successfully mounting EFS on the first EC2 instance, I moved to the second instance to confirm that the storage is shared properly.
+
+---
+
+## 🔑 SSH into Second EC2 Instance
+
+I connected to the second EC2 instance (`efs-instance-b`) using the same process:
+
+- Navigated to `Downloads` folder
+- Set proper permission using `chmod 400` for the `.pem` file
+- SSH into the instance successfully
+
+---
+
+## 📊 Check Existing Storage
+
+After login, I checked disk usage:
+
+- Used `df -hT`
+
+At this point, the EFS storage was not yet mounted on this instance.
+
+---
+
+## 📁 Create Mount Directory
+
+I created a new mount directory:
+
+- `/storage-b`
+
+This directory will be used to mount the shared EFS storage.
+
+---
+
+## 🔗 Mount EFS File System
+
+Then I used the same NFS mount command from the EFS console:
+
+- Copied the NFS client command
+- Mounted it to `/storage-b`
+
+---
+
+## 📊 Verify Mount Status
+
+After mounting, I checked again:
+
+- Used `df -hT`
+
+Now the EFS file system (`efs-demo`) was successfully mounted on this instance.
+
+---
+
+## 🔄 Verify Shared Storage
+
+To confirm that storage is shared between both EC2 instances:
+
+- Navigated to `/storage-b`
+- Used `ls /storage-b`
+
+I found the file:
+
+- `hello.txt`
+
+This confirmed that the file created from the first EC2 instance is visible in the second EC2 instance.
+
+---
+
+## 🎯 Final Result
+
+✔ EFS is successfully mounted on both EC2 instances  
+✔ Storage is shared between `efs-instance-a` and `efs-instance-b`  
+✔ File synchronization is working correctly  
+
+---
+
+## 📸 Screenshots
+
+![SSH to Instance B](img/b6.png)
+
+![Key Permission Setup](img/b7.png)
+
+![Disk Check Before Mount](img/b8.png)
+
+![Create Mount Directory](img/b9.png)
+
+![Mount EFS on Second Instance](img/b10.png)
+
+
