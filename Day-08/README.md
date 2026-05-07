@@ -102,3 +102,63 @@ After completing the configuration, I clicked on **Create Security Group**.
 ![Create Security Group](img/5.png)
 
 ![Security Group Created](img/6.png)
+
+# 🖥️ Step 3: Launch EC2 Instances for EFS
+
+After creating the Security Group, I launched two EC2 instances to connect with the EFS shared storage.
+
+First, I went to:
+
+- EC2 Dashboard
+- Clicked on **Launch Instance**
+
+---
+
+## 📌 EC2 Instance Configuration
+
+I created two instances with the following names:
+
+- `efs-instance-a`
+- `efs-instance-b`
+
+---
+
+## ⚙️ Instance Settings
+
+| Setting | Value |
+|---|---|
+| OS Image | Amazon Linux |
+| Instance Type | `t3.micro` |
+| Key Pair | `efs-demo-practice` |
+| VPC | `efs-demo` |
+| Public IP | Enabled |
+
+---
+
+## 🔐 Security Group Configuration
+
+I created/used a Security Group and added an inbound SSH rule so I could connect to the instances remotely.
+
+| Type | Port | Source |
+|---|---|---|
+| SSH | 22 | My IP |
+
+After completing all configurations, I clicked on **Launch Instance**.
+
+---
+
+## 📸 Screenshots
+
+![Launch Instance](img/7.png)
+
+![Instance Configuration](img/8.png)
+
+![Amazon Linux Selection](img/9.png)
+
+![Network Settings](img/10.png)
+
+![Security Group Configuration](img/11.png)
+
+![Launch Summary](img/12.png)
+
+![EC2 Instances Running](img/13.png)
