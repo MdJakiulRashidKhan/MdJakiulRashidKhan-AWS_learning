@@ -162,3 +162,88 @@ After completing all configurations, I clicked on **Launch Instance**.
 ![Launch Summary](img/12.png)
 
 ![EC2 Instances Running](img/13.png)
+
+# 📂 Step 4: Create AWS EFS File System
+
+After launching EC2 instances, I moved to creating the shared storage using AWS EFS.
+
+---
+
+## 🛠️ Create File System
+
+I went to:
+
+- AWS Dashboard
+- Opened **Elastic File System (EFS)**
+- Clicked on **Create File System**
+
+---
+
+## 📌 File System Configuration
+
+| Setting | Value |
+|---|---|
+| Name | `efs-dashboard-demo` |
+| VPC | `efs-demo` |
+| Configuration | Customize |
+
+I selected **Customize** and kept the default settings for file system configuration.
+
+Then I clicked **Next**.
+
+---
+
+## 🌐 Network Access Settings
+
+In the network access section:
+
+- Selected my Security Group: `efs-sg`
+- Ensured it is attached to all required subnets inside the VPC
+
+Then I clicked **Next**.
+
+---
+
+## 🔐 File System Policy
+
+- Kept **Default policy**
+- Proceeded with **Next**
+
+---
+
+## 🚀 Create File System
+
+Finally, I clicked on **Create**.
+
+After a few moments:
+
+- The EFS file system was successfully created
+- File System ID was generated
+- This ID will be used to mount the storage in EC2 instances
+
+---
+
+## ✅ Result
+
+- File System Name: `efs-shared-demo`
+- Status: Active
+- Ready to mount on EC2 instances
+
+---
+
+## 📸 Screenshots
+
+
+![File System Settings](img/14.png)
+
+![VPC Selection](img/15.png)
+
+![Network Access](img/16.png)
+
+![Security Group Selection](img/17.png)
+
+![Policy Settings](img/18.png)
+
+![Create Confirmation](img/19.png)
+
+![EFS Created Successfully](img/20.png)
