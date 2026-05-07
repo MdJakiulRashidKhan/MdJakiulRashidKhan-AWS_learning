@@ -52,3 +52,53 @@ After the VPC was created, AWS automatically created the following resources:
 ![Subnet and Route Table](img/3.png)
 
 ![Internet Gateway](img/4.png)
+
+# 🛡️ Step 2: Create Security Group for EFS
+
+After creating the VPC, I created a Security Group for AWS EFS.
+
+First, I went to:
+
+- EC2 Dashboard
+- Security Groups
+- Clicked on **Create Security Group**
+
+---
+
+## 📌 Security Group Configuration
+
+| Setting | Value |
+|---|---|
+| Security Group Name | `efs-demo` |
+| Description | `Allows EFS shared storage` |
+| VPC | `efs-demo` |
+
+---
+
+## 📥 Inbound Rules
+
+Since EFS uses the NFS protocol, I added an inbound rule with the following configuration:
+
+| Type | Protocol | Port | Source |
+|---|---|---|---|
+| NFS | TCP | 2049 | `10.0.0.0/16` |
+
+I only whitelisted my VPC subnet range so that instances inside the VPC can access the shared EFS storage securely.
+
+---
+
+## 📤 Outbound Rules
+
+| Type | Destination |
+|---|---|
+| All Traffic | `0.0.0.0/0` |
+
+After completing the configuration, I clicked on **Create Security Group**.
+
+---
+
+## 📸 Screenshots
+
+![Create Security Group](img/5.png)
+
+![Security Group Created](img/6.png)
