@@ -247,3 +247,95 @@ After a few moments:
 ![Create Confirmation](img/19.png)
 
 ![EFS Created Successfully](img/20.png)
+
+# 💻 Step 5: Connect EC2 Instance & Mount EFS
+
+After creating the EFS file system, I connected to my first EC2 instance to mount the shared storage.
+
+---
+
+## 🔑 SSH Access to EC2
+
+Since the `.pem` key file was downloaded in the **Downloads** folder, I first navigated there:
+
+- Used `cd Downloads`
+- Changed permission of key file using `chmod 400`
+
+This step ensured the private key is secure and usable for SSH connection.
+
+Then I connected to the EC2 instance using SSH.
+
+---
+
+## 📊 Check Disk Space
+
+After logging into the instance, I checked disk usage:
+
+- Used `df -hT`
+
+At this stage, the EFS storage was not yet mounted.
+
+---
+
+## 📁 Create Mount Directory
+
+I created a directory for mounting EFS:
+
+- `/storage-a`
+
+This will act as the mount point for shared storage.
+
+---
+
+## 🔗 Mount EFS File System
+
+Then I went to AWS EFS console:
+
+- Opened `efs-shared-demo`
+- Clicked on **Attach**
+- Selected **NFS client instructions**
+- Copied the provided mount command
+
+On the EC2 instance, I pasted the command and mounted EFS to:
+
+- `/storage-a`
+
+---
+
+## 📊 Verify Mount
+
+After mounting, I again checked disk usage:
+
+- `df -hT`
+
+Now the EFS file system was successfully mounted and visible.
+
+---
+
+## 📂 Test File Creation
+
+To confirm the shared storage is working:
+
+- Navigated to `/storage-a`
+- Created a file using `touch hello.tnx`
+- Listed files using `ls`
+
+The file was successfully created inside the EFS shared storage.
+
+---
+
+## 📸 Screenshots
+
+![SSH Login](img/b1.png)
+
+![Key Permission Setup](img/b2.png)
+
+![Disk Check Before Mount](img/21.png)
+
+![Create Mount Directory](img/22.png)
+
+![EFS Attach Command](img/b3.png)
+
+![Mounting EFS](img/b4.png)
+
+![File System Verification](img/b5.png)
