@@ -214,3 +214,84 @@ This helped clearly identify both servers through the browser.
 - ✔ Custom HTML content applied
 - ✔ Server A and Server B are now clearly identifiable from browser output
 - ✔ Backend servers are fully ready for Load Balancer integration
+
+  ...
+
+
+  # 🟢 EC2 Target Group Issue Fix (Health Status: unused)
+
+## ✅ তুমি যেগুলো করেছো (ঠিক আছে)
+- EC2 Dashboard → Target Group এ গিয়েছো  
+- Create Target Group করেছো  
+  - Type: Instance  
+  - Name: test-ec2-alb-demo-tg  
+  - Protocol: HTTP (80)  
+  - VPC: load-balancer-demo  
+- 2টা EC2 instance attach করেছো  
+- Create Target Group করেছো  
+
+---
+
+## ⚠️ সমস্যা
+Health Status = unused
+
+---
+
+## 🔧 কারণ
+- Target Group এখনো Load Balancer (ALB) এর সাথে যুক্ত হয়নি  
+- তাই AWS এটাকে active traffic হিসেবে ধরছে না  
+
+---
+
+## 🔧 সমাধান
+
+### 1. ALB এর সাথে attach করা
+- Load Balancer এ যাও  
+- Listener (HTTP :80) open করো  
+- Forward rule এ target group select করো  
+  - test-ec2-alb-demo-tg  
+
+---
+
+### 2. Health check path ঠিক করা
+- ? ব্যবহার করা যাবে না  
+- use করো: / অথবা /index.html  
+
+---
+
+### 3. Security Group check
+- EC2 inbound rule এ HTTP 80 allow থাকতে হবে  
+- Source হবে ALB security group  
+
+---
+
+### 4. Wait করো
+- Attach করার পর 1–2 মিনিট অপেক্ষা  
+- তারপর status update হবে  
+
+---
+
+## 📸 Screenshots
+
+![EC2 Target Group Setup](img/18.png)
+
+![Health Check Configuration](img/19.png)
+
+![EC2 Instances Attached](img/20.png)
+
+![Load Balancer Overview](img/21.png)
+
+![Listener Rule (ALB → Target Group)](img/22.png)
+
+![Security Group Settings](img/23.png)
+
+![Target Group Health Status](img/24.png)
+
+![Final Working Architecture](img/25.png)
+
+---
+
+## 🎯 Result
+- Target Group active হবে  
+- instances healthy দেখাবে  
+- ALB দিয়ে access করা যাবে  
