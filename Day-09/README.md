@@ -1,4 +1,4 @@
-# ☁️ AWS VPC Setup for Load Balancer Demo
+# ☁️ AWS Highly Available Load Balanced Architecture
 
 ## 🎯 Project Goal
 This project demonstrates how to build a **Highly Available Load Balanced Web Architecture** using AWS services:
