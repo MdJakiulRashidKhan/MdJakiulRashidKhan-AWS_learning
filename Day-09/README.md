@@ -168,4 +168,78 @@ I accessed the EC2 instances from my local terminal. I navigated to the Download
 - ✔ Hostnames configured as serverA and serverB  
 - ✔ System packages updated  
 - ✔ Nginx installed and running on both servers  
-- ✔ Both servers are ready to serve web traffic behind a load balancer  
+- ✔ Both servers are ready to serve web traffic behind a load balancer
+
+  # 🌐 Nginx Verification on EC2 Instances
+
+## 🚀 Step 4: Browser Test (Public IP Access)
+
+After installing and starting Nginx on both EC2 instances, I accessed each server using their **public IP address** from the browser.
+
+---
+
+## 🖥️ Server A Output
+
+![Server A Nginx Default Page](img/12.png)
+
+Initially, the default Nginx welcome page was displayed when accessing the public IP of `load-balancer-server-a`.
+
+---
+
+## 🖥️ Server B Output
+
+![Server B Nginx Default Page](img/13.png)
+
+Similarly, the default Nginx welcome page was displayed for `load-balancer-server-b`.
+
+---
+
+## ✏️ Custom HTML Update
+
+I modified the default Nginx homepage for both servers:
+
+### 🖥️ Server A
+- Edited the default index file
+- Changed content to: **"Welcome to Server A"**
+
+![Server A Custom Page](img/14.png)
+
+![Server A Confirmation](img/15.png)
+
+---
+
+### 🖥️ Server B
+- Edited the default index file
+- Changed content to: **"This is Server B"**
+
+![Server B Custom Page](img/b10.png)
+
+![Server B Confirmation](img/b11.png)
+
+![Server B Final View](img/b12.png)
+
+---
+
+## 🌐 Final Browser Result
+
+### 🖥️ Server A
+![Final Server A](img/16.png)
+
+- Shows: **Welcome to Server A**
+
+---
+
+### 🖥️ Server B
+![Final Server B](img/17.png)
+
+- Shows: **This is Server B**
+
+---
+
+## 📌 Result
+
+- ✔ Nginx successfully accessible via public IP
+- ✔ Default page verified on both servers
+- ✔ Custom HTML content applied
+- ✔ Server A and Server B are now clearly identifiable from browser output
+- ✔ Backend servers are fully ready for Load Balancer integration
