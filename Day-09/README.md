@@ -25,13 +25,13 @@ VPC সফলভাবে তৈরি হয়েছে।
 
 ## Screenshots
 
-![VPC Setup](images/1.png)
+![VPC Setup](img/1.png)
 
-![Public Subnets](images/2.png)
+![Public Subnets](img/2.png)
 
-![Internet Gateway](images/3.png)
+![Internet Gateway](img/3.png)
 
-![Route Table](images/4.png)
+![Route Table](img/4.png)
 
 # AWS EC2 Instance Setup for Load Balancer
 
@@ -83,19 +83,15 @@ VPC সফলভাবে তৈরি হয়েছে।
 
 ## 📸 Screenshots
 
-![EC2 Step 1](images/5.png)
+![EC2 Step 3](img/7.png)
 
-![EC2 Step 2](images/6.png)
+![EC2 Step 4](img/8.png)
 
-![EC2 Step 3](images/7.png)
+![EC2 Step 5](img/9.png)
 
-![EC2 Step 4](images/8.png)
+![EC2 Step 6](img/10.png)
 
-![EC2 Step 5](images/9.png)
-
-![EC2 Step 6](images/10.png)
-
-![EC2 Step 7](images/11.png)
+![EC2 Step 7](img/11.png)
 
 ---
 
