@@ -2,7 +2,7 @@
 
 ## 🚀 Step 1: VPC Creation
 
-আমি AWS Console এ গিয়ে VPC Dashboard এ প্রবেশ করি। তারপর **Create VPC → VPC and more** অপশন ব্যবহার করে একটি নতুন VPC তৈরি করি।
+I went to the AWS Console and opened the VPC Dashboard. Then I created a new VPC using the **Create VPC → VPC and more** option.
 
 ## ⚙️ VPC Configuration
 
@@ -17,11 +17,11 @@
 
 ## ✅ Result
 
-VPC সফলভাবে তৈরি হয়েছে।
+The VPC was successfully created.
 
-- ✔️ 2 টি Availability Zone এ 2 টি Public Subnet তৈরি হয়েছে
-- 🌐 Internet Gateway (IGW) attach হয়েছে
-- 🛣️ Route Table (RT) তৈরি ও configure হয়েছে
+- ✔️ 2 Public Subnets in 2 Availability Zones
+- 🌐 Internet Gateway (IGW) attached
+- 🛣️ Route Table (RT) created and configured
 
 ## 📸 Screenshots
 
@@ -39,7 +39,7 @@ VPC সফলভাবে তৈরি হয়েছে।
 
 ## 🚀 Step 2: EC2 Instance Creation
 
-আমি AWS Console এর EC2 Dashboard এ গিয়ে **Launch Instance** ব্যবহার করে দুটি EC2 instance তৈরি করেছি।
+I went to the AWS EC2 Dashboard and launched two EC2 instances using the **Launch Instance** option.
 
 ---
 
@@ -95,45 +95,48 @@ VPC সফলভাবে তৈরি হয়েছে।
 
 ![EC2 Step 7](img/11.png)
 
+---
+
 # 🖥️ EC2 Access & Nginx Setup (Load Balancer Backend Servers)
 
 ## 🚀 Step 3: SSH Access to EC2 Instances
 
-আমি প্রথমে লোকাল terminal এ গিয়ে **Downloads folder** এ যাই, যেখানে `.pem` key file ছিল। এরপর key file এর permission secure করার জন্য chmod ব্যবহার করি এবং SSH দিয়ে দুইটি EC2 instance এ login করি।
+I accessed the EC2 instances from my local terminal. I navigated to the Downloads folder where the `.pem` key file was stored. Then I secured the key file permissions and connected to both EC2 instances using SSH.
 
 ---
 
 ## 🔐 Server Naming Setup
 
 ### 🖥️ Server A
-- প্রথম EC2 instance এ login করার পর hostname পরিবর্তন করে `serverA` রাখা হয়  
-- তারপর session থেকে বের হয়ে আবার SSH করে login করি যাতে terminal এ নামটা properly দেখা যায়  
-- এতে করে বুঝতে সুবিধা হয় কোন server এ আছি
+- After logging into the first EC2 instance, I changed the hostname to `serverA`
+- I exited and reconnected via SSH to verify the hostname in the terminal
+- This helped clearly identify which server I was working on
 
 ### 🖥️ Server B
-- দ্বিতীয় EC2 instance এ একইভাবে hostname পরিবর্তন করে `serverB` রাখা হয়  
-- আবার SSH করে login করে নিশ্চিত করা হয় hostname ঠিকভাবে apply হয়েছে  
+- I repeated the same process on the second EC2 instance
+- The hostname was changed to `serverB`
+- Reconnected via SSH to confirm the change
 
 ---
 
 ## 👤 Root Access & System Update
 
-- দুইটি server-এ root user access নেওয়া হয়  
-- system update করে সব packages latest করা হয়  
+- I switched to root user on both servers
+- I updated the system packages to the latest version
 
 ---
 
 ## 🌐 Nginx Installation & Setup
 
 ### 🖥️ Server A
-- Nginx install করা হয়  
-- Nginx service start করা হয়  
-- Nginx service enable করা হয় যাতে reboot এর পরেও চালু থাকে  
+- Installed Nginx
+- Started Nginx service
+- Enabled Nginx service to start automatically on reboot
 
 ### 🖥️ Server B
-- একইভাবে Nginx install করা হয়  
-- service start করা হয়  
-- service enable করা হয়  
+- Installed Nginx
+- Started Nginx service
+- Enabled Nginx service to start automatically on reboot
 
 ---
 
@@ -161,12 +164,8 @@ VPC সফলভাবে তৈরি হয়েছে।
 
 ## 📌 Result
 
-- ✔ দুইটি EC2 instance SSH দিয়ে access করা হয়েছে  
-- ✔ Hostname set করা হয়েছে (serverA & serverB)  
-- ✔ System update সম্পন্ন হয়েছে  
-- ✔ Nginx install ও run করা হয়েছে  
-- ✔ দুইটি server এখন web traffic serve করার জন্য ready  
-
----
-
-
+- ✔ Successfully accessed both EC2 instances via SSH  
+- ✔ Hostnames configured as serverA and serverB  
+- ✔ System packages updated  
+- ✔ Nginx installed and running on both servers  
+- ✔ Both servers are ready to serve web traffic behind a load balancer  
