@@ -1,5 +1,16 @@
 # ☁️ AWS VPC Setup for Load Balancer Demo
 
+## 🎯 Project Goal
+This project demonstrates how to build a **Highly Available Load Balanced Web Architecture** using AWS services:
+
+- VPC
+- EC2 Instances
+- Nginx Web Server
+- Target Group
+- Application Load Balancer (ALB)
+
+---
+
 ## 🚀 Step 1: VPC Creation
 
 I went to the AWS Console and opened the VPC Dashboard. Then I created a new VPC using the **Create VPC → VPC and more** option.
@@ -418,4 +429,28 @@ When accessing the ALB DNS in the browser:
 - Two EC2 instances are attached  
 - Multi-AZ architecture is used  
 - Security group allows HTTP traffic  
-- Single DNS is used for multiple servers  
+- Single DNS is used for multiple servers
+  ...
+  
+---
+
+## 🟢 Final Result
+
+- ✔ VPC fully configured  
+- ✔ EC2 instances running  
+- ✔ Nginx deployed successfully  
+- ✔ Target Group healthy  
+- ✔ ALB active and working  
+- ✔ Load balancing verified  
+- ✔ Multi-AZ high availability achieved  
+
+---
+
+## 🧠 Key Learning
+
+- AWS networking (VPC, Subnets, IGW)
+- EC2 deployment & configuration
+- Load balancing concept (ALB)
+- Health checks & target groups
+- Security group configuration
+- High availability architecture design
