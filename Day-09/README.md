@@ -174,43 +174,28 @@ I accessed the EC2 instances from my local terminal. I navigated to the Download
 
 ## 🚀 Step 4: Browser Test (Public IP Access)
 
-After installing and starting Nginx on both EC2 instances, I accessed each server using their **public IP address** from the browser.
+I accessed both EC2 instances using their public IP addresses from the browser to verify Nginx.
+
+At first, the default Nginx welcome page was displayed on both servers.
+
+Then I modified the default HTML page on both instances.
+
+- On the first server, I changed the message to **"Welcome to Server A"**
+- On the second server, I changed the message to **"This is Server B"**
+
+This helped clearly identify both servers through the browser.
 
 ---
 
-## 🖥️ Server A Output
+## 📸 Screenshots
 
-![Server A Nginx Default Page](img/12.png)
+![Nginx Default Server A](img/12.png)
 
-Initially, the default Nginx welcome page was displayed when accessing the public IP of `load-balancer-server-a`.
-
----
-
-## 🖥️ Server B Output
-
-![Server B Nginx Default Page](img/13.png)
-
-Similarly, the default Nginx welcome page was displayed for `load-balancer-server-b`.
-
----
-
-## ✏️ Custom HTML Update
-
-I modified the default Nginx homepage for both servers:
-
-### 🖥️ Server A
-- Edited the default index file
-- Changed content to: **"Welcome to Server A"**
+![Nginx Default Server B](img/13.png)
 
 ![Server A Custom Page](img/14.png)
 
 ![Server A Confirmation](img/15.png)
-
----
-
-### 🖥️ Server B
-- Edited the default index file
-- Changed content to: **"This is Server B"**
 
 ![Server B Custom Page](img/b10.png)
 
@@ -218,23 +203,9 @@ I modified the default Nginx homepage for both servers:
 
 ![Server B Final View](img/b12.png)
 
----
+![Final Server A View](img/16.png)
 
-## 🌐 Final Browser Result
-
-### 🖥️ Server A
-![Final Server A](img/16.png)
-
-- Shows: **Welcome to Server A**
-
----
-
-### 🖥️ Server B
-![Final Server B](img/17.png)
-
-- Shows: **This is Server B**
-
----
+![Final Server B View](img/17.png)
 
 ## 📌 Result
 
