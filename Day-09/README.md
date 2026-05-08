@@ -291,7 +291,131 @@ Health Status = unused
 
 ---
 
-## 🎯 Result
-- Target Group active হবে  
-- instances healthy দেখাবে  
-- ALB দিয়ে access করা যাবে  
+# 🚀 AWS Application Load Balancer (ALB) with EC2 Demo
+
+## 📌 Overview
+In this project, I used AWS Application Load Balancer (ALB) to distribute traffic between two EC2 instances. When the ALB DNS is accessed, requests are routed alternately between the servers.
+
+---
+
+## 🏗️ Step 1: Create Application Load Balancer
+
+- Go to EC2 Dashboard → Load Balancers  
+- Click **Create Load Balancer**  
+- Select **Application Load Balancer**
+
+### ⚙️ Configuration
+- Name: `test-alb-for-ec2-demo`
+- Scheme: Internet-facing
+- IP type: IPv4
+
+---
+
+## 🌐 Step 2: Network Mapping
+
+- VPC: `load-balancer-demo-vpc`
+- Subnets:
+  - AZ-1 subnet
+  - AZ-2 subnet
+
+👉 Two Availability Zones are used for High Availability
+
+---
+
+## 🔐 Step 3: Security Group (ALB SG)
+
+- Created a new security group  
+- Name: `alb-sg`  
+- Description: `allows-access-from-internet`
+
+### Inbound Rules:
+- Type: HTTP  
+- Port: 80  
+- Source: `0.0.0.0/0`
+
+👉 Attached `alb-sg` with the default security group
+
+---
+
+## 🎯 Step 4: Target Group Setup
+
+- Name: `test-ec2-alb-demo-tg`
+- Target type: Instance
+- Protocol: HTTP
+- VPC: `load-balancer-demo-vpc`
+
+### Targets:
+- EC2 Instance 1 → Server A  
+- EC2 Instance 2 → Server B  
+
+---
+
+## ❤️ Step 5: Health Check
+
+- HTTP health check enabled  
+- Status: Healthy
+
+---
+
+## 🔗 Step 6: Listener & Routing
+
+- Listener: HTTP : 80  
+- Forward to: `test-ec2-alb-demo-tg`
+
+---
+
+## 🚀 Step 7: Create Load Balancer
+
+- Created the load balancer successfully  
+- Status: Active
+
+---
+
+## 🌍 Testing Result
+
+When accessing the ALB DNS in the browser:
+
+- First request → Server A (Welcome to Server A)  
+- Refresh → Server B (This is Server B)
+
+👉 Traffic is automatically distributed between instances
+
+---
+
+## 📸 Screenshots (AWS ALB Setup)
+
+![Create Load Balancer](img/26.png)
+
+![Select Application Load Balancer](img/27.png)
+
+![Basic Configuration](img/28.png)
+
+![Network Mapping (VPC + Subnets)](img/29.png)
+
+![Security Group Creation (alb-sg)](img/30.png)
+
+![Inbound Rule HTTP 80 (0.0.0.0/0)](img/31.png)
+
+![Attach Security Group to ALB](img/32.png)
+
+![Listener and Routing Setup](img/33.png)
+
+![Target Group Selection](img/34.png)
+
+![Load Balancer Review Page](img/35.png)
+
+![Provisioning State](img/36.png)
+
+![Active State](img/37.png)
+
+![DNS Name Copy](img/38.png)
+
+![Browser Test (Server A / Server B Switching)](img/39.png)
+
+## 📌 Summary
+
+- ALB is configured successfully  
+- Two EC2 instances are attached  
+- Multi-AZ architecture is used  
+- Security group allows HTTP traffic  
+- Single DNS is used for multiple servers  
