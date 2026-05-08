@@ -94,3 +94,79 @@ VPC সফলভাবে তৈরি হয়েছে।
 ![EC2 Step 6](img/10.png)
 
 ![EC2 Step 7](img/11.png)
+
+# 🖥️ EC2 Access & Nginx Setup (Load Balancer Backend Servers)
+
+## 🚀 Step 3: SSH Access to EC2 Instances
+
+আমি প্রথমে লোকাল terminal এ গিয়ে **Downloads folder** এ যাই, যেখানে `.pem` key file ছিল। এরপর key file এর permission secure করার জন্য chmod ব্যবহার করি এবং SSH দিয়ে দুইটি EC2 instance এ login করি।
+
+---
+
+## 🔐 Server Naming Setup
+
+### 🖥️ Server A
+- প্রথম EC2 instance এ login করার পর hostname পরিবর্তন করে `serverA` রাখা হয়  
+- তারপর session থেকে বের হয়ে আবার SSH করে login করি যাতে terminal এ নামটা properly দেখা যায়  
+- এতে করে বুঝতে সুবিধা হয় কোন server এ আছি
+
+### 🖥️ Server B
+- দ্বিতীয় EC2 instance এ একইভাবে hostname পরিবর্তন করে `serverB` রাখা হয়  
+- আবার SSH করে login করে নিশ্চিত করা হয় hostname ঠিকভাবে apply হয়েছে  
+
+---
+
+## 👤 Root Access & System Update
+
+- দুইটি server-এ root user access নেওয়া হয়  
+- system update করে সব packages latest করা হয়  
+
+---
+
+## 🌐 Nginx Installation & Setup
+
+### 🖥️ Server A
+- Nginx install করা হয়  
+- Nginx service start করা হয়  
+- Nginx service enable করা হয় যাতে reboot এর পরেও চালু থাকে  
+
+### 🖥️ Server B
+- একইভাবে Nginx install করা হয়  
+- service start করা হয়  
+- service enable করা হয়  
+
+---
+
+## 📸 Screenshots
+
+![Server A Setup 1](img/b1.png)
+
+![Server A Setup 2](img/b2.png)
+
+![Server A Setup 3](img/b3.png)
+
+![Server A Setup 4](img/b4.png)
+
+![Server B Setup 1](img/b5.png)
+
+![Server B Setup 2](img/b6.png)
+
+![Server B Setup 3](img/b7.png)
+
+![Server B Setup 4](img/b8.png)
+
+![Server B Setup 5](img/b9.png)
+
+---
+
+## 📌 Result
+
+- ✔ দুইটি EC2 instance SSH দিয়ে access করা হয়েছে  
+- ✔ Hostname set করা হয়েছে (serverA & serverB)  
+- ✔ System update সম্পন্ন হয়েছে  
+- ✔ Nginx install ও run করা হয়েছে  
+- ✔ দুইটি server এখন web traffic serve করার জন্য ready  
+
+---
+
+
