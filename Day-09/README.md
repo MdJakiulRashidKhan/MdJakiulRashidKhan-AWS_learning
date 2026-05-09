@@ -229,56 +229,79 @@ This helped clearly identify both servers through the browser.
   ...
 
 
-  # 🟢 EC2 Target Group Issue Fix (Health Status: unused)
+  ## 🟢 EC2 Target Group Issue Fix (Health Status: unused)
 
-## ✅ তুমি যেগুলো করেছো (ঠিক আছে)
-- EC2 Dashboard → Target Group এ গিয়েছো  
-- Create Target Group করেছো  
-  - Type: Instance  
-  - Name: test-ec2-alb-demo-tg  
+## ✅ Completed Configuration
+- Opened EC2 Dashboard → Target Groups  
+- Created a new Target Group  
+  - Target Type: Instance  
+  - Name: `test-ec2-alb-demo-tg`  
   - Protocol: HTTP (80)  
-  - VPC: load-balancer-demo  
-- 2টা EC2 instance attach করেছো  
-- Create Target Group করেছো  
+  - VPC: `load-balancer-demo`  
+- Attached two EC2 instances  
+- Successfully created the Target Group  
 
 ---
 
-## ⚠️ সমস্যা
-Health Status = unused
+## ⚠️ Issue
+
+The Target Group health status showed:
+
+`unused`
 
 ---
 
-## 🔧 কারণ
-- Target Group এখনো Load Balancer (ALB) এর সাথে যুক্ত হয়নি  
-- তাই AWS এটাকে active traffic হিসেবে ধরছে না  
+## 🔧 Reason
+
+The Target Group was not yet attached to an Application Load Balancer (ALB).  
+Because of this, AWS did not consider it as an active traffic destination.
 
 ---
 
-## 🔧 সমাধান
+## 🔧 Solution
 
-### 1. ALB এর সাথে attach করা
-- Load Balancer এ যাও  
-- Listener (HTTP :80) open করো  
-- Forward rule এ target group select করো  
-  - test-ec2-alb-demo-tg  
+### 1️⃣ Attach the Target Group to the ALB
 
----
-
-### 2. Health check path ঠিক করা
-- ? ব্যবহার করা যাবে না  
-- use করো: / অথবা /index.html  
+- Open the **Load Balancer**
+- Go to the **Listener (HTTP :80)**
+- Edit the forward rule
+- Select the target group:
+  - `test-ec2-alb-demo-tg`
 
 ---
 
-### 3. Security Group check
-- EC2 inbound rule এ HTTP 80 allow থাকতে হবে  
-- Source হবে ALB security group  
+### 2️⃣ Configure Correct Health Check Path
+
+Instead of using:
+
+`?`
+
+Use:
+
+`/`
+
+or
+
+`/index.html`
 
 ---
 
-### 4. Wait করো
-- Attach করার পর 1–2 মিনিট অপেক্ষা  
-- তারপর status update হবে  
+### 3️⃣ Verify Security Group Rules
+
+The EC2 instance security group must allow:
+
+- HTTP Port 80
+- Source: ALB Security Group
+
+---
+
+### 4️⃣ Wait for Health Check Update
+
+After attaching the Target Group:
+
+- Wait 1–2 minutes
+- AWS health checks will run automatically
+- Status will change from `unused` to `healthy`
 
 ---
 
