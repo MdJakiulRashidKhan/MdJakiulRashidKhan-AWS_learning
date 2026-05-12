@@ -1,13 +1,26 @@
 # ☁️ AWS Highly Available Load Balanced Architecture with WAF Security
 
 ## 🎯 Project Goal
-This project demonstrates how to build a **Highly Available Load Balanced Web Architecture** using AWS services:
 
-- VPC
-- EC2 Instances
+This project demonstrates how to build a **Highly Available, Secure, and Scalable Web Architecture** using AWS services:
+
+- VPC (Networking Foundation)
+- EC2 Instances (Backend Servers)
 - Nginx Web Server
-- Target Group
 - Application Load Balancer (ALB)
+- Target Groups (Traffic Distribution)
+- AWS WAF (Web Application Firewall)
+- Geo-based Access Control
+- CAPTCHA Protection
+- Security Group Configuration
+
+The goal is to simulate a **real-world production environment** with:
+
+- High Availability (Multi-AZ deployment)
+- Load Balancing (Traffic distribution across servers)
+- Security Hardening (WAF protection against attacks)
+- Geographic Access Control (Geo blocking rules)
+- Scalable backend architecture
 
 ---
 
