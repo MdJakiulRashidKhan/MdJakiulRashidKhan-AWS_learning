@@ -1,4 +1,4 @@
-# ☁️ AWS Highly Available Load Balanced Architecture
+# ☁️ AWS Highly Available Load Balanced Architecture with WAF Security
 
 ## 🎯 Project Goal
 This project demonstrates how to build a **Highly Available Load Balanced Web Architecture** using AWS services:
@@ -469,11 +469,263 @@ When accessing the ALB DNS in the browser:
 
 ---
 
+# 🛡️ AWS WAF Integration with Application Load Balancer
+
+## 🚀 Step 8: Configure AWS WAF for ALB Protection
+
+After successfully configuring the Application Load Balancer (ALB), I added AWS WAF protection to improve security against malicious traffic and common web attacks.
+
+---
+
+## 🛠️ Step 1: Open AWS WAF & Shield
+
+- Opened the AWS Console
+- Navigated to:
+  - **AWS WAF & Shield**
+- Clicked on:
+  - **Create Protection Pack**
+
+---
+
+## ⚙️ Step 2: Configure Application Settings
+
+### 📌 Application Category
+- Selected:
+  - `Others`
+
+### 🎯 Application Focus
+- Selected:
+  - `Both API and Web`
+
+This configuration enables protection for both web applications and API traffic.
+
+---
+
+## 🌐 Step 3: Add Regional Resources
+
+Under the **Add Resources** section:
+
+- Selected:
+  - `Add Regional Resources`
+
+Then I chose my existing Application Load Balancer:
+
+### 🔗 Selected Resource
+- `test-alb-for-ec2-demo`
+
+This associated AWS WAF directly with the ALB.
+
+---
+
+## 🏷️ Step 4: Create Web ACL
+
+### ⚙️ Configuration
+- Web ACL Name:
+  - `aws-ec2-elb-waf-demo`
+
+- Scope:
+  - Regional
+
+After reviewing the settings, I clicked:
+
+- ✅ **Create Web ACL**
+
+---
+
+## 🔒 Step 5: WAF Protection Enabled
+
+The Web ACL was successfully created and attached to the Application Load Balancer.
+
+Now the ALB is protected against:
+
+- Common web exploits
+- Suspicious HTTP requests
+- Basic malicious traffic patterns
+
+---
+
+## 📸 Screenshots
+
+![AWS WAF Dashboard](img/40.png)
+
+![Create Protection Pack](img/41.png)
+
+![Application Category](img/42.png)
+
+![Application Focus (API & Web)](img/43.png)
+
+![Add Regional Resource](img/44.png)
+
+![Web ACL Creation](img/45.png)
+
+
+---
+
+## ✅ Result
+
+- ✔ AWS WAF configured successfully  
+- ✔ Web ACL attached to ALB  
+- ✔ Regional protection enabled  
+- ✔ API and Web traffic protection configured  
+- ✔ Application security improved  
+
+---
+
 ## 🧠 Key Learning
 
-- AWS networking (VPC, Subnets, IGW)
-- EC2 deployment & configuration
-- Load balancing concept (ALB)
-- Health checks & target groups
-- Security group configuration
-- High availability architecture design
+- AWS WAF configuration process  
+- Creating and managing Web ACLs  
+- Associating ALB with WAF  
+- Regional resource protection  
+- Enhancing AWS application security
+
+  ---
+
+  # 🌍 AWS WAF Custom Geo Match Rule Configuration
+
+## 🚀 Step 9: Configure Custom WAF Rules
+
+After successfully attaching AWS WAF with the Application Load Balancer, I configured custom security rules to control traffic based on geographic location.
+
+---
+
+## 🛠️ Step 1: Open Web ACL Rules
+
+- Opened the existing Web ACL:
+  - `aws-ec2-elb-waf-demo`
+- Navigated to:
+  - **Rules**
+- Clicked:
+  - **Add Rules**
+  - **Add My Own Rules and Rule Groups**
+
+---
+
+## 🌍 Step 2: Create Geo Match Rule
+
+### ⚙️ Rule Configuration
+- Rule Type:
+  - `Geo Match Rule`
+
+- Rule Name:
+  - `block`
+
+### 🌐 Country Selection
+- Selected Country:
+  - `Bangladesh (BD)`
+
+### 🚫 Action
+- Action:
+  - `Block`
+
+After configuring the rule, I saved the changes successfully.
+
+---
+
+## 🔒 Step 3: Verify Block Action
+
+When accessing the ALB DNS from the browser after enabling the block rule:
+
+- The application displayed:
+  - `403 Forbidden`
+
+This confirmed that AWS WAF was successfully blocking requests from the selected geographic region.
+
+---
+
+## 🤖 Step 4: Change Rule Action to CAPTCHA
+
+To test another WAF protection mechanism:
+
+- Edited the existing rule
+- Changed action from:
+  - `Block`
+- To:
+  - `CAPTCHA`
+
+### 🏷️ Updated Rule Name
+- `captcha`
+
+After saving the rule, the browser displayed a CAPTCHA verification page before allowing access.
+
+This confirmed that AWS WAF CAPTCHA protection was working correctly.
+
+---
+
+## ✅ Step 5: Allow Traffic Again
+
+Finally, I modified the rule action again.
+
+### ⚙️ Updated Configuration
+- Action:
+  - `Allow`
+
+### 🏷️ Rule Name
+- `allow`
+
+After saving the changes:
+
+- The ALB became accessible again
+- Traffic was distributed normally between both EC2 instances
+
+### 🌐 Browser Result
+- First refresh:
+  - `Welcome to Server A`
+- Next refresh:
+  - `This is Server B`
+
+This verified that the Application Load Balancer and backend servers were functioning correctly after the WAF rule updates.
+
+---
+
+## 📸 Screenshots
+
+![Open Web ACL Rules](img/45.png)
+
+![Add Custom Rule](img/46.png)
+
+![Geo Match Rule Configuration](img/47.png)
+
+![Select Bangladesh Region](img/48.png)
+
+![403 Forbidden Result](img/51.png)
+
+![Edit Rule Action](img/52.png)
+
+![CAPTCHA Rule Configuration](img/53.png)
+
+![CAPTCHA Verification Page](img/54.png)
+
+![Allow Rule Configuration](img/55.png)
+
+![Server A Response](img/56.png)
+
+![Server B Response](img/57.png)
+
+![Final Working Architecture](img/58.png)
+
+---
+
+## ✅ Result
+
+- ✔ Custom Geo Match Rule configured  
+- ✔ Country-based traffic filtering tested  
+- ✔ 403 Forbidden response verified  
+- ✔ CAPTCHA protection enabled successfully  
+- ✔ Traffic restored using Allow rule  
+- ✔ Load Balancer functionality verified  
+
+---
+
+## 🧠 Key Learning
+
+- AWS WAF custom rule configuration  
+- Geo Match Rule setup  
+- Country-based traffic filtering  
+- CAPTCHA protection using AWS WAF  
+- Managing WAF rule actions  
+- Testing ALB security behavior
+
+  
+
+
