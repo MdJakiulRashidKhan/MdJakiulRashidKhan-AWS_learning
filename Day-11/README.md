@@ -464,6 +464,8 @@ Overall, this project successfully implements a highly available, scalable, and 
 
 ---
 
+Note: In this implementation, EC2 instances were deployed in public subnets for simplicity and learning purposes. In production-grade architecture, instances should be placed in private subnets with only the Load Balancer exposed to the internet.
+
 
 
  
