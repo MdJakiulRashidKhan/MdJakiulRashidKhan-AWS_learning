@@ -124,3 +124,76 @@ Also:
 ![](img/11.png)
 
 ![](img/12.png)
+
+---
+
+## ⚖️ Application Load Balancer (ALB) Setup
+
+I navigated to the EC2 Dashboard and created an Application Load Balancer for the Auto Scaling architecture.
+
+---
+
+## ⚙️ Load Balancer Configuration
+
+- **Load Balancer Type:** Application Load Balancer  
+- **Name:** asg-alb  
+- **Scheme:** Internet-facing  
+- **IP Address Type:** IPv4  
+
+---
+
+## 🌐 Network Mapping
+
+- **VPC:** autoscalling-vpc  
+- **Availability Zones:** 3 public subnets selected  
+
+---
+
+## 🔐 Security Group Configuration
+
+A new Security Group was created:
+
+- **Security Group Name:** asg-sg  
+- **Description:** Allow HTTP requests for Auto Scaling VPC  
+- **VPC:** autoscalling-vpc  
+
+### 📥 Inbound Rules
+- **Type:** HTTP  
+- **Port:** 80  
+- **Source:** 0.0.0.0/0  
+
+---
+
+## 🎯 Listener & Routing
+
+- **Protocol:** HTTP  
+- **Port:** 80  
+- **Target Group:** asg-alb-tg  
+
+---
+
+## 🚀 Final Step
+
+After reviewing all configurations, the Load Balancer was created successfully.
+
+---
+
+## 🖼️ Screenshots
+
+![](img/13.png)
+
+![](img/14.png)
+
+![](img/15.png)
+
+![](img/16.png)
+
+![](img/17.png)
+
+![](img/18.png)
+
+![](img/19.png)
+
+![](img/20.png)
+
+---
