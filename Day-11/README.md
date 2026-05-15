@@ -332,3 +332,100 @@ After reviewing all configurations, the Auto Scaling Group was successfully crea
 
 ---   
 
+## 📈 Auto Scaling Test & Dynamic Scaling Policy
+
+After creating the Auto Scaling Group, I verified that the desired capacity was working correctly.
+
+---
+
+## 🖥️ Instance Behavior Check
+
+- Initially, the **desired capacity was set to 3**
+- So, **3 EC2 instances were automatically launched**
+- When accessing the Load Balancer DNS in the browser, it displayed responses from all 3 instances (hostname rotation confirmed)
+
+---
+
+## 🧪 Manual Instance Termination Test
+
+To test Auto Scaling behavior:
+
+- I manually terminated 1 EC2 instance
+- AWS Auto Scaling detected the instance failure
+- It automatically launched a new instance to maintain the desired capacity of 3
+
+👉 This confirmed that Auto Scaling is working correctly
+
+---
+
+## ⚙️ Dynamic Scaling Policy (Target Tracking)
+
+I configured a **Target Tracking Scaling Policy**:
+
+- **Policy Type:** Target Tracking Scaling  
+- **Metric Type:** Average CPU Utilization  
+- **Target Value:** 50%  
+- **Instance Warm-up Time:** 300 seconds  
+
+---
+
+## 📌 What This Policy Does
+
+This policy automatically adjusts the number of EC2 instances based on CPU usage:
+
+- If CPU usage increases above 50% → new instances are launched (Scale Out)
+- If CPU usage drops below 50% → instances are removed (Scale In)
+
+👉 This ensures performance stability and cost efficiency
+
+---
+
+## 🔥 Load Testing (Stress Test)
+
+To simulate high CPU usage:
+
+### On each EC2 instance:
+
+- Installed stress tool:
+  sudo yum install stress -y
+- Applied CPU load:
+  stress --cpu 2 --timeout 600
+
+  ## 🧠 What Happened During Load Test
+
+- CPU usage increased significantly on the running instances due to simulated workload
+- The Target Tracking Scaling Policy continuously monitored the CPU utilization
+- When CPU usage went above the defined threshold, Auto Scaling automatically triggered scale-out actions
+- New EC2 instances were launched to handle the increased load
+
+---
+
+## 📈 Scaling Result
+
+- The number of instances increased from **3 to 6**
+- Load was distributed across all running instances through the Load Balancer
+- The system maintained stability and high availability even under heavy traffic
+  
+  ---
+## 🖼️ Screenshots
+
+![](img/39.png)
+![](img/40.png)
+![](img/41.png)
+![](img/42.png)
+![](img/43.png)
+![](img/44.png)
+![](img/45.png)
+![](img/46.png)
+![](img/47.png)
+
+![](img/b1.png)
+![](img/b2.png)
+![](img/b3.png)
+
+![](img/48.png)
+
+
+
+ 
+
