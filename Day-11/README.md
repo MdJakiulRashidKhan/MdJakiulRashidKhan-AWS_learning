@@ -330,5 +330,5 @@ After reviewing all configurations, the Auto Scaling Group was successfully crea
 ![](img/37.png)
 ![](img/38.png)
 
----
+---   
 
