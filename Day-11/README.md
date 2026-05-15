@@ -1,6 +1,20 @@
+# ☁️ AWS VPC + ALB + Auto Scaling Project
+
+![AWS](https://img.shields.io/badge/AWS-Cloud-orange?style=for-the-badge)
+![EC2](https://img.shields.io/badge/EC2-Auto%20Scaling-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-green?style=for-the-badge)
+
+---
+
 ## 📌 Project Repository Name
 
 aws-vpc-alb-auto-scaling-project
+
+## 🚀 Project Description
+This project demonstrates a complete AWS cloud infrastructure using VPC, Application Load Balancer (ALB), and Auto Scaling Group (ASG).  
+It is designed to provide a highly available, scalable, and fault-tolerant web architecture using EC2 instances running Nginx behind a load balancer.
+
+---
 
 
 # ☁️ AWS VPC Setup for Auto Scaling
