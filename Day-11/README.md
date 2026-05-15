@@ -1,3 +1,8 @@
+## 📌 Project Repository Name
+
+aws-vpc-alb-auto-scaling-project
+
+
 # ☁️ AWS VPC Setup for Auto Scaling
 
 ## 🎯 Project Overview
@@ -424,6 +429,26 @@ To simulate high CPU usage:
 ![](img/b3.png)
 
 ![](img/48.png)
+
+---
+
+## 🚀 Project Summary
+
+This project demonstrates a complete AWS Auto Scaling architecture using a custom VPC, Application Load Balancer (ALB), Target Group, and Auto Scaling Group (ASG).
+
+A secure VPC was created with both public and private subnets across multiple Availability Zones to ensure high availability and fault tolerance. An Internet Gateway and route tables were configured to enable controlled internet access.
+
+An Application Load Balancer was deployed to distribute incoming traffic across multiple EC2 instances. A Target Group was created and associated with the Load Balancer to monitor healthy instances.
+
+An Auto Scaling Group was then configured using a Launch Template with Amazon Linux EC2 instances running Nginx as a web server. The instances were automatically deployed across multiple subnets and registered with the Target Group.
+
+To ensure dynamic scalability, a Target Tracking Scaling Policy was implemented based on average CPU utilization (50%). Under normal conditions, 3 instances were running, but during increased load testing, the system automatically scaled out to 6 instances.
+
+A stress test was performed to simulate high CPU usage, which triggered Auto Scaling actions. The system successfully demonstrated both scale-out and self-healing capabilities by replacing terminated instances and distributing traffic evenly through the Load Balancer.
+
+Overall, this project successfully implements a highly available, scalable, and fault-tolerant AWS architecture suitable for real-world production environments.
+
+---
 
 
 
