@@ -74,5 +74,53 @@ In this project, I created an AWS VPC for an Auto Scaling architecture. It inclu
 
 ---
 
-## 🚀 Summary
-This VPC setup provides a basic foundation for an Auto Scaling architecture, where public and private subnets are properly separated for security and scalability.
+## 🧩 Target Group Setup (EC2 Dashboard)
+
+I navigated to the EC2 Dashboard and created a Target Group for the Auto Scaling + Load Balancer setup.
+
+---
+
+## ⚙️ Target Group Configuration
+
+- **Target Type:** Instance  
+- **Name:** asg-alb-tg  
+- **Protocol:** HTTP  
+- **Port:** 80  
+- **IP Address Type:** IPv4  
+- **VPC:** autoscalling-vpc  
+
+---
+
+## 🧪 Health Check Configuration
+
+- **Health Check Protocol:** HTTP  
+- **Health Check Path:** /  
+
+---
+
+## 🚨 Important Note
+
+At this stage, no instances were available, so no targets were registered.
+
+Also:
+- Load Balancer: ❌ None associated
+
+---
+
+## 🖼️ Screenshots
+
+![](img/5.png)
+
+![](img/6.png)
+
+![](img/7.png)
+
+![](img/8.png)
+
+![](img/9.png)
+
+![](img/10.png)
+
+![](img/11.png)
+
+![](img/12.png)
