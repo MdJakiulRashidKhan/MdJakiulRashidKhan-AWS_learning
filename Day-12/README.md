@@ -47,3 +47,62 @@ Finally:
 ![img8](img/8.png)
 ![img9](img/9.png)
 ![img10](img/10.png)
+ ---
+
+# ☁️ Step 2: IAM User Login & S3 Permission Setup (AWS)
+
+After creating the IAM user, I logged in using the **AWS Console Sign-in URL**, username, and password. During the first login, I reset the password and successfully entered the AWS Management Console.
+
+## 🔐 Login Issue
+After logging in, I noticed that the IAM user had **no permissions**, so I could not access AWS services like S3.
+
+---
+
+## 🛠️ Root Account Permission Setup
+
+To fix this, I switched to the root account and went to the IAM policies section. From there, I created a new custom policy for S3 access and saved it.
+
+Then I named the policy:  
+**test-jakiul-allow-s3**
+
+---
+
+## 👤 Attach Policy to IAM User
+
+After creating the policy:
+- Went back to IAM User
+- Clicked **Add permissions**
+- Selected **Attach policies directly**
+- Chose the newly created custom policy
+- Clicked **Next → Add permissions**
+
+Now the IAM user successfully got **S3 full access permission**.
+
+---
+
+## ❌ Permission Test
+Later, I also tested removing the attached permission from the IAM user to understand how access control works in AWS IAM.
+
+---
+
+## 📸 Screenshots
+
+![img11](img/11.png)  
+![img12](img/12.png)  
+![img13](img/13.png)  
+![img14](img/14.png)  
+![img15](img/15.png)  
+![img16](img/16.png)  
+![img17](img/17.png)  
+![img18](img/18.png)  
+![img19](img/19.png)  
+![img20](img/20.png)  
+![img21](img/21.png)  
+![img22](img/22.png)  
+![img23](img/23.png)  
+![img24](img/24.png)  
+![img25](img/25.png)
+
+---
+ 
+
